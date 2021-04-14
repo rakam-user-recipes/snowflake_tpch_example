@@ -58,7 +58,7 @@ sources:
         dimension:
           type: double
           name: o_totalprice
-          report_options:
+          reportOptions:
             format_numbers: $0,0
         measure:
           dimension: o_totalprice
