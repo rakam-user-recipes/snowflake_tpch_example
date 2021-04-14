@@ -44,7 +44,7 @@ sources:
       tests:
         - relationships:
           to: ref('customer')
-          field: c_custkey
+          field: c_custkey 
           relation: one_to_many
           join: left_join
 
