@@ -1,0 +1,42 @@
+name: dbt
+
+on:
+  repository_dispatch:
+    types: [trigger_dbt]
+  push:
+    branches:
+      - main
+    paths:
+      - '/.github/workflows/dbt.yml/**'
+
+jobs:
+  dbt:
+    name: dbt
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@master
+      - uses: buremba/get-changed-files-with-regex@0.5
+        if: github.event_name == 'push' # only valid when a new commit is pushed
+        name: Changed Files Exporter with Regex
+        id: changedfiles
+        with:
+          token: ${{ github.token }}
+          pattern: '\/.github\/workflows\/dbt.yml\/models\/([A-Za-z0-9_]+)\.sql$'
+
+      - name: Get Database Credentials
+        run: echo '${{secrets.dbt_profiles_yml}}' > /.github/workflows/dbt.yml/profiles.yml
+      - name: Install DBT Dependencies
+        run: cd /.github/workflows/dbt.yml && dbt deps --profiles-dir ./
+      - name: Insert DBT Seeds
+        if: github.event_name == 'repository_dispatch'
+        run: cd /.github/workflows/dbt.yml && dbt seed --profiles-dir ./
+      - name: Run DBT [Full Refresh] # perform full-refresh for new/modified models
+        if: github.event_name == 'push' && (steps.changedfiles.outputs.modified != '' || steps.changedfiles.outputs.added != '')
+        run: cd /.github/workflows/dbt.yml && dbt run --profiles-dir ./ --full-refresh --threads 2 --models ${{ steps.changedfiles.outputs.modified }} ${{ steps.changedfiles.outputs.added }}
+      - name: Run DBT [Scheduled]
+        if: github.event_name == 'schedule'
+        run: cd /.github/workflows/dbt.yml && dbt run --profiles-dir ./ --threads 2
+      - name: Run DBT [Manuel]
+        if: github.event_name == 'repository_dispatch'
+        run: cd /.github/workflows/dbt.yml && dbt run --profiles-dir ./ --threads 2 ${{ github.event.client_payload.args }}
+

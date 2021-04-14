@@ -1,0 +1,95 @@
+version: 2
+sources:
+- name: sample_data
+  database: SNOWFLAKE_SAMPLE_DATA
+  schema: TPCH_SF1
+  tables:
+  - name: orders
+    identifier: ORDERS
+    meta:
+      category: 'sample_data'
+      mappings: 
+        userId: o_custkey
+        eventTimestamp: o_orderdate
+      measures:
+        total_orders:
+          aggregation: count 
+          type: double
+        total_users:
+          aggregation: approximate_unique
+          dimension: o_custkey
+      aggregates:
+        totals_by_date:
+          measures: ['total_orders', 'total_users']
+          dimensions: ['o_orderdate']
+    columns:
+    - name: O_ORDERKEY
+      meta:
+        dimension:
+          type: double
+          name: o_orderkey
+        measure:
+          dimension: o_orderkey
+          aggregation: sum
+          type: double
+    - name: O_CUSTKEY
+      meta:
+        dimension:
+          type: double
+          name: o_custkey
+        measure:
+          dimension: o_custkey
+          aggregation: sum
+          type: double
+      tests:
+        - relationships:
+          to: ref('customer')
+          field: c_custkey
+          relation: one_to_many
+          join: left_join
+
+    - name: O_ORDERSTATUS
+      meta:
+        dimension:
+          type: string
+          name: o_orderstatus
+    - name: O_TOTALPRICE
+      meta:
+        dimension:
+          type: double
+          name: o_totalprice
+          report_options:
+            format_numbers: $0,0
+        measure:
+          dimension: o_totalprice
+          aggregation: sum
+          type: double
+    - name: O_ORDERDATE
+      meta:
+        dimension:
+          type: date
+          name: o_orderdate
+    - name: O_ORDERPRIORITY
+      meta:
+        dimension:
+          type: string
+          name: o_orderpriority
+    - name: O_CLERK
+      meta:
+        dimension:
+          type: string
+          name: o_clerk
+    - name: O_SHIPPRIORITY
+      meta:
+        dimension:
+          type: double
+          name: o_shippriority
+        measure:
+          dimension: o_shippriority
+          aggregation: sum
+          type: double
+    - name: O_COMMENT
+      meta:
+        dimension:
+          type: string
+          name: o_comment
