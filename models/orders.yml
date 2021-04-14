@@ -41,7 +41,7 @@ sources:
           dimension: o_custkey
           aggregation: sum
           type: double
-      tests:
+      tests: 
         - relationships:
           to: ref('customer')  
           field: c_custkey 
