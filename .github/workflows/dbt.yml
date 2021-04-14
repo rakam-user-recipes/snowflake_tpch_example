@@ -7,7 +7,7 @@ on:
     branches:
       - main
     paths:
-      - '/.github/workflows/dbt.yml/**'
+      - 'models/.rakam/**'
 
 jobs:
   dbt:
@@ -21,22 +21,22 @@ jobs:
         id: changedfiles
         with:
           token: ${{ github.token }}
-          pattern: '\/.github\/workflows\/\/models\/([A-Za-z0-9_]+)\.sql$'
+          pattern: '\/models\/([A-Za-z0-9_]+)\.sql$'
 
       - name: Get Database Credentials
-        run: echo '${{secrets.dbt_profiles_yml}}' > /.github/workflows//profiles.yml
+        run: echo '${{secrets.dbt_profiles_yml}}' > /profiles.yml
       - name: Install DBT Dependencies
-        run: cd /.github/workflows/ && dbt deps --profiles-dir ./
+        run: cd  && dbt deps --profiles-dir ./
       - name: Insert DBT Seeds
         if: github.event_name == 'repository_dispatch'
-        run: cd /.github/workflows/ && dbt seed --profiles-dir ./
+        run: cd  && dbt seed --profiles-dir ./
       - name: Run DBT [Full Refresh] # perform full-refresh for new/modified models
         if: github.event_name == 'push' && (steps.changedfiles.outputs.modified != '' || steps.changedfiles.outputs.added != '')
-        run: cd /.github/workflows/ && dbt run --profiles-dir ./ --full-refresh --threads 2 --models ${{ steps.changedfiles.outputs.modified }} ${{ steps.changedfiles.outputs.added }}
+        run: cd  && dbt run --profiles-dir ./ --full-refresh --threads 2 --models ${{ steps.changedfiles.outputs.modified }} ${{ steps.changedfiles.outputs.added }}
       - name: Run DBT [Scheduled]
         if: github.event_name == 'schedule'
-        run: cd /.github/workflows/ && dbt run --profiles-dir ./ --threads 2
+        run: cd  && dbt run --profiles-dir ./ --threads 2
       - name: Run DBT [Manuel]
         if: github.event_name == 'repository_dispatch'
-        run: cd /.github/workflows/ && dbt run --profiles-dir ./ --threads 2 ${{ github.event.client_payload.args }}
+        run: cd  && dbt run --profiles-dir ./ --threads 2 ${{ github.event.client_payload.args }}
 
