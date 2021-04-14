@@ -24,19 +24,19 @@ jobs:
           pattern: '\/models\/([A-Za-z0-9_]+)\.sql$'
 
       - name: Get Database Credentials
-        run: echo '${{secrets.dbt_profiles_yml}}' > /profiles.yml
+        run: echo '${{secrets.dbt_profiles_yml}}' > profiles.yml
       - name: Install DBT Dependencies
-        run: cd  && dbt deps --profiles-dir ./
+        run: dbt deps --profiles-dir ./
       - name: Insert DBT Seeds
         if: github.event_name == 'repository_dispatch'
-        run: cd  && dbt seed --profiles-dir ./
+        run: dbt seed --profiles-dir ./
       - name: Run DBT [Full Refresh] # perform full-refresh for new/modified models
         if: github.event_name == 'push' && (steps.changedfiles.outputs.modified != '' || steps.changedfiles.outputs.added != '')
-        run: cd  && dbt run --profiles-dir ./ --full-refresh --threads 2 --models ${{ steps.changedfiles.outputs.modified }} ${{ steps.changedfiles.outputs.added }}
+        run: dbt run --profiles-dir ./ --full-refresh --threads 2 --models ${{ steps.changedfiles.outputs.modified }} ${{ steps.changedfiles.outputs.added }}
       - name: Run DBT [Scheduled]
         if: github.event_name == 'schedule'
-        run: cd  && dbt run --profiles-dir ./ --threads 2
+        run: dbt run --profiles-dir ./ --threads 2
       - name: Run DBT [Manuel]
         if: github.event_name == 'repository_dispatch'
-        run: cd  && dbt run --profiles-dir ./ --threads 2 ${{ github.event.client_payload.args }}
+        run: dbt run --profiles-dir ./ --threads 2 ${{ github.event.client_payload.args }}
 
