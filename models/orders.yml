@@ -43,10 +43,10 @@ sources:
           type: double
       tests: 
         - relationships:
-          to: ref('customer')  
-          field: c_custkey 
-          relation: one_to_many 
-          join: left_join
+            to: ref('customer')  
+            field: c_custkey 
+            relation: one_to_many 
+            join: left_join
 
     - name: O_ORDERSTATUS
       meta:
