@@ -1,7 +1,7 @@
 {{
   config(
    
-    schema = "rakam_aggregates",
+    schema = "RAKAM_AGGREGATES",
     alias = "SOURCE__TPCH__ORDERS__TOTALS_BY_DATE",
     materialized = "incremental"
   )
