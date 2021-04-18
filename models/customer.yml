@@ -7,7 +7,6 @@ sources:
   - name: customer
     identifier: CUSTOMER
     meta:
-      category: 'sample_data'
       measures:
         total_rows:
           aggregation: count
