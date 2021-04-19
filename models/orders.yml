@@ -5,7 +5,7 @@ sources:
   schema: TPCH_SF1  
   tables:  
   - name: orders 
-    identifier: ORDERS 
+    identifier: ORDERS  
     meta:
       mappings: 
         userId: o_custkey
