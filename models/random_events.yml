@@ -1,0 +1,9 @@
+version: 2
+models:
+    - name: random_event_1
+      columns:
+          - name: test
+            meta:
+                dimension:
+          
+        
