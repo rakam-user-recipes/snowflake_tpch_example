@@ -5,5 +5,3 @@ models:
           - name: test
             meta:
                 dimension:
-          
-        
