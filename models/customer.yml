@@ -6,7 +6,7 @@ sources:
   tables:
   - name: customer
     identifier: CUSTOMER
-    meta:
+    meta: 
       measures:
         total_rows:
           aggregation: count
