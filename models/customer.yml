@@ -9,7 +9,7 @@ sources:
     meta: 
       measures:
         total_rows:
-          aggregation: count
+          aggregation: count 
     columns:
     - name: C_CUSTKEY
       meta:
