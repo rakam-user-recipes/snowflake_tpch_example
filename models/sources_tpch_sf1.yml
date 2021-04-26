@@ -1,0 +1,111 @@
+version: 2
+sources:
+- name: SNOWFLAKE_SAMPLE_DATA_TPCH_SF1
+  database: SNOWFLAKE_SAMPLE_DATA
+  schema: TPCH_SF1
+  tables:
+  - name: lineitem
+    identifier: LINEITEM
+    meta:
+      rakam:
+        measures:
+          count_of_rows:
+            aggregation: count
+            type: double
+    columns:
+    - name: L_ORDERKEY
+      meta:
+        rakam.dimension:
+          type: double
+          name: l_orderkey
+        rakam.measure:
+          aggregation: sum
+    - name: L_PARTKEY
+      meta:
+        rakam.dimension:
+          type: double
+          name: l_partkey
+        rakam.measure:
+          aggregation: sum
+    - name: L_SUPPKEY
+      meta:
+        rakam.dimension:
+          type: double
+          name: l_suppkey
+        rakam.measure:
+          aggregation: sum
+    - name: L_LINENUMBER
+      meta:
+        rakam.dimension:
+          type: double
+          name: l_linenumber
+        rakam.measure:
+          aggregation: sum
+    - name: L_QUANTITY
+      meta:
+        rakam.dimension:
+          type: double
+          name: l_quantity
+        rakam.measure:
+          aggregation: sum
+    - name: L_EXTENDEDPRICE
+      meta:
+        rakam.dimension:
+          type: double
+          name: l_extendedprice
+        rakam.measure:
+          aggregation: sum
+    - name: L_DISCOUNT
+      meta:
+        rakam.dimension:
+          type: double
+          name: l_discount
+        rakam.measure:
+          aggregation: sum
+    - name: L_TAX
+      meta:
+        rakam.dimension:
+          type: double
+          name: l_tax
+        rakam.measure:
+          aggregation: sum
+    - name: L_RETURNFLAG
+      meta:
+        rakam.dimension:
+          type: string
+          name: l_returnflag
+    - name: L_LINESTATUS
+      meta:
+        rakam.dimension:
+          type: string
+          name: l_linestatus
+    - name: L_SHIPDATE
+      meta:
+        rakam.dimension:
+          type: date
+          name: l_shipdate
+    - name: L_COMMITDATE
+      meta:
+        rakam.dimension:
+          type: date
+          name: l_commitdate
+    - name: L_RECEIPTDATE
+      meta:
+        rakam.dimension:
+          type: date
+          name: l_receiptdate
+    - name: L_SHIPINSTRUCT
+      meta:
+        rakam.dimension:
+          type: string
+          name: l_shipinstruct
+    - name: L_SHIPMODE
+      meta:
+        rakam.dimension:
+          type: string
+          name: l_shipmode
+    - name: L_COMMENT
+      meta:
+        rakam.dimension:
+          type: string
+          name: l_comment

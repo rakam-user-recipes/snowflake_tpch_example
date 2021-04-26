@@ -7,37 +7,36 @@ sources:
   - name: orders 
     identifier: ORDERS  
     meta:
-      mappings: 
-        userId: o_custkey
-        eventTimestamp: o_orderdate  
-      measures:
-        total_orders:
-          aggregation: count 
-          type: double
-        total_users:
-          aggregation: approximate_unique
-          dimension: o_custkey
-      aggregates:
-        totals_by_date:
-          measures: ['total_orders', 'total_users']
-          dimensions: ['o_orderdate']
+      rakam:
+        mappings: 
+          userId: o_custkey
+          eventTimestamp: o_orderdate  
+        measures:
+          total_orders:
+            aggregation: count 
+            type: double
+          total_users:
+            aggregation: approximate_unique
+            dimension: o_custkey
+        aggregates:
+          totals_by_date:
+            measures: ['total_orders', 'total_users']
+            dimensions: ['o_orderdate', 'o_orderstatus']
     columns:
     - name: O_ORDERKEY
       meta:
-        dimension:
+        rakam.dimension:
           type: double
           name: o_orderkey
-        measure:
-          dimension: o_orderkey
+        rakam.measure:
           aggregation: sum
           type: double
     - name: O_CUSTKEY
       meta:
-        dimension:
+        rakam.dimension:
           type: double
           name: o_custkey
-        measure:
-          dimension: o_custkey
+        rakam.measure:
           aggregation: sum
           type: double
       tests: 
@@ -50,46 +49,43 @@ sources:
 
     - name: O_ORDERSTATUS
       meta:
-        dimension:
+        rakam.dimension:
           type: string
           name: o_orderstatus
     - name: O_TOTALPRICE
       meta:
-        dimension:
+        rakam.dimension:
           type: double
           name: o_totalprice
-          reportOptions:
-            format_numbers: $0,0
-        measure:
-          dimension: o_totalprice
+          format: $0,0
+        rakam.measure:
           aggregation: sum
           type: double
     - name: O_ORDERDATE
       meta:
-        dimension:
+        rakam.dimension:
           type: date
           name: o_orderdate
     - name: O_ORDERPRIORITY
       meta:
-        dimension:
+        rakam.dimension:
           type: string
           name: o_orderpriority
     - name: O_CLERK
       meta:
-        dimension:
+        rakam.dimension:
           type: string
           name: o_clerk
     - name: O_SHIPPRIORITY
       meta:
-        dimension:
+        rakam.dimension:
           type: double
           name: o_shippriority
-        measure:
-          dimension: o_shippriority
+        rakam.measure:
           aggregation: sum
           type: double
     - name: O_COMMENT
       meta:
-        dimension:
+        rakam.dimension:
           type: string
           name: o_comment
