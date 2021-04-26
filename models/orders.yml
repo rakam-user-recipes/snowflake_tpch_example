@@ -6,7 +6,7 @@ sources:
   tables:   
   - name: orders 
     identifier: ORDERS   
-    meta:
+    meta: 
       rakam:
         mappings: 
           userId: o_custkey
