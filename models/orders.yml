@@ -10,7 +10,7 @@ sources:
       rakam:
         mappings: 
           userId: o_custkey
-          eventTimestamp: o_orderdate  
+          eventTimestamp: o_orderdate   
         measures:
           total_orders:
             aggregation: count 
