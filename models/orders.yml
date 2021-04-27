@@ -11,7 +11,7 @@ sources:
         mappings: 
           userId: o_custkey
           eventTimestamp: o_orderdate   
-        measures:
+        measures: 
           total_orders:
             aggregation: count 
             type: double
