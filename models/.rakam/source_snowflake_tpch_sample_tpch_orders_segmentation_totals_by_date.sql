@@ -19,6 +19,6 @@ GROUP BY
     1,  2 
 
 ) AS t
-                            {% if is_incremental() %}
-                               WHERE source_snowflake_tpch_sample_tpch_orders.O_ORDERDATE > (select max(o_orderdate) from {{ this }})
-                            {% endif %}
+{% if is_incremental() %}
+   WHERE source_snowflake_tpch_sample_tpch_orders.O_ORDERDATE > (select max(o_orderdate) from {{ this }})
+{% endif %}
