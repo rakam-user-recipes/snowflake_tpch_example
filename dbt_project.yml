@@ -1,7 +1,7 @@
 name: 'snowflake_tpch_sample'
 version: '1.0.0'
 config-version: 2
-
+ 
 profile: 'default'
 
 source-paths: ["models"]
