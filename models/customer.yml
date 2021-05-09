@@ -5,7 +5,7 @@ sources:
   schema: TPCH_SF1
   tables:
   - name: customer   
-    identifier: CUSTOMER 
+    identifier: CUSTOMER  
     meta:  
       rakam:
         measures:

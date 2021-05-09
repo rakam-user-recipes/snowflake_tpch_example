@@ -19,7 +19,7 @@ FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS AS source_snowflake_tpch_sample_tpch_
 GROUP BY
     1,  2,  3 
 
-) AS t
+) AS source_snowflake_tpch_sample_tpch_orders
 {% if is_incremental() %}
    WHERE source_snowflake_tpch_sample_tpch_orders.O_ORDERDATE > (select max(o_orderdate) from {{ this }})
 {% endif %}

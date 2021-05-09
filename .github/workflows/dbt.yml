@@ -7,7 +7,7 @@ on:
     branches:
       - main
     paths:
-      - '**.sql'
+      - '**.(sql|yml|jinja2)'
 
 jobs:
   dbt:
