@@ -1,7 +1,7 @@
 {{
   config(
    
-    schema = "RAKAM_AGGREGATES",
+    schema = "RAKAM_TEST_RAKAM_AGGREGATES",
     alias = "SOURCE_SNOWFLAKE_TPCH_SAMPLE_TPCH_ORDERS_SEGMENTATION_TOTALS_BY_DATE",
     materialized = "incremental",
     tags = ['rakam_materialize']
