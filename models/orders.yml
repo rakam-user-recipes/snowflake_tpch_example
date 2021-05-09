@@ -7,7 +7,7 @@ sources:
   - name: orders 
     identifier: ORDERS   
     meta: 
-      rakam: 
+      rakam:  
         mappings: 
           userId: o_custkey
           eventTimestamp: o_orderdate    
