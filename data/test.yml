@@ -9,5 +9,5 @@ seeds:
           rakam.dimension:
       - name: user_friendly_name
         meta:
-          rakam.dimension: 
+          rakam.dimension:  
             type: string
