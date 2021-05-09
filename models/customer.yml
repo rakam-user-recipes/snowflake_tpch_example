@@ -10,6 +10,8 @@ sources:
       measures:
         total_rows:
           aggregation: count 
+        sqlmeasure:
+          sql: "{measure.total_rows} * 2"
     columns:
     - name: C_CUSTKEY
       meta:
