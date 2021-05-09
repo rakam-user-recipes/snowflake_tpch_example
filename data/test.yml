@@ -1,0 +1,13 @@
+version: 2
+seeds:
+  - name: test
+    docs:
+      show: true
+    columns:
+      - name: iso_code
+        meta:
+          rakam.dimension:
+      - name: user_friendly_name
+        meta:
+          rakam.dimension: 
+            type: string
