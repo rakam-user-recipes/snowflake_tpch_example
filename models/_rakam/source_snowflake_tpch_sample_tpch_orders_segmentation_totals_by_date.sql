@@ -2,7 +2,8 @@
   config(
    
     schema = "rakam_aggregates",
-    alias = "SOURCE_SNOWFLAKE_TPCH_SAMPLE_TPCH_ORDERS_SEGMENTATION_TOTALS_BY_DATE",
+    database = "DEMO_DB",
+    alias = "source_snowflake_tpch_sample_tpch_orders_segmentation_totals_by_date",
     materialized = "incremental",
     tags = ['rakam_materialize']
   )
