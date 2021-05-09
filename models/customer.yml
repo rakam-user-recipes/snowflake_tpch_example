@@ -6,7 +6,7 @@ sources:
   tables:
   - name: customer 
     identifier: CUSTOMER
-    meta: 
+    meta:  
       rakam:
         measures:
           total_rows:
