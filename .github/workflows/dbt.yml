@@ -23,7 +23,7 @@ jobs:
         id: changedfiles
         with:
           token: ${{ github.token }}
-          pattern: 'models\/(.*\.sql)$'
+          pattern: '(models\/.*\.sql)$'
 
       - name: Get Database Credentials
         run: echo '${{secrets.dbt_profiles_yml}}' > profiles.yml
