@@ -7,7 +7,7 @@ sources:
   - name: customer   
     identifier: CUSTOMER   
     meta:  
-      rakam:
+      metriql:
         measures:
           total_rows:
             aggregation: count 
@@ -16,41 +16,41 @@ sources:
     columns:
     - name: C_CUSTKEY
       meta:
-        dimension:
+        metriql.dimension:
           type: double
           name: c_custkey
     - name: C_NAME
       meta:
-        dimension:
+        metriql.dimension:
           type: string
           name: c_name
     - name: C_ADDRESS
       meta:
-        dimension:
+        metriql.dimension:
           type: string
           name: c_address
     - name: C_NATIONKEY
       meta:
-        dimension:
+        metriql.dimension:
           type: double
           name: c_nationkey
     - name: C_PHONE
       meta:
-        dimension:
+        metriql.dimension:
           type: string
           name: c_phone
     - name: C_ACCTBAL
       meta:
-        dimension:
+        metriql.dimension:
           type: double
           name: c_acctbal
     - name: C_MKTSEGMENT
       meta:
-        dimension:
+        metriql.dimension:
           type: string
           name: c_mktsegment
     - name: C_COMMENT
       meta:
-        dimension:
+        metriql.dimension:
           type: string
           name: c_comment

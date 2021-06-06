@@ -7,7 +7,7 @@ sources:
   - name: orders 
     identifier: ORDERS    
     meta: 
-      rakam:  
+      metriql:  
         mappings: 
           userId: o_custkey
           eventTimestamp: o_orderdate    
@@ -25,63 +25,66 @@ sources:
     columns:
     - name: O_ORDERKEY
       meta:
-        rakam.dimension:
+        metriql.dimension:
           type: double
           name: o_orderkey
-        rakam.measure:
+        metriql.measure:
           aggregation: sum
           type: double
     - name: O_CUSTKEY
       meta:
-        rakam.dimension:
+        metriql.dimension:
           type: double
           name: o_custkey
-        rakam.measure:
+        metriql.measure:
           aggregation: sum
           type: double
       tests: 
         - relationships:
             to: source('tpch', 'customer')
             field: c_custkey 
-            rakam:
+            metriql:
               relation: one_to_many 
               join: left_join
 
     - name: O_ORDERSTATUS
       meta:
-        rakam.dimension:
+        metriql.dimension:
           type: string
           name: o_orderstatus
     - name: O_TOTALPRICE
       meta:
-        rakam.dimension:
+        metriql.dimension:
           type: double
           name: o_totalprice
           format: $0,0
-        rakam.measure:
+          report:
+            datastudio:
+              semantic_type: country
+        metriql.measure:
           aggregation: sum
           type: double
     - name: O_ORDERDATE
       meta:
-        rakam.dimension:
+        metriql.dimension:
           type: date
           name: o_orderdate
     - name: O_ORDERPRIORITY
       meta:
-        rakam.dimension:
+        metriql.dimension:
           type: string
           name: o_orderpriority
     - name: O_CLERK
       meta:
-        rakam.dimension:
+        metriql.dimension:
           type: string
           name: o_clerk
     - name: O_SHIPPRIORITY
       meta:
-        rakam.dimension:
+        metriql.dimension:
           type: double
           name: o_shippriority
-        rakam.measure:
+        metriql.measure:
           aggregation: sum
           type: double
     - name: O_COMMENT
