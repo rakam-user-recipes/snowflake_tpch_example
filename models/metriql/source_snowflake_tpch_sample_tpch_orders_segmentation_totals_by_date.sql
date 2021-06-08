@@ -6,7 +6,7 @@
     alias = "source_snowflake_tpch_sample_tpch_orders_segmentation_totals_by_date",
     materialized = "incremental",
     tags = ['metriql_materialize']
-  ) 
+  )
 }}
 SELECT * FROM (SELECT 
     source_snowflake_tpch_sample_tpch_orders.O_ORDERDATE AS o_orderdate,
