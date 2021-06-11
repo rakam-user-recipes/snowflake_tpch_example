@@ -8,7 +8,6 @@ sources:
     identifier: CUSTOMER   
     meta:  
       metriql:
-        category: Category2
         measures:
           total_rows:
             aggregation: count 
