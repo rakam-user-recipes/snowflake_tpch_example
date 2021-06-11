@@ -27,9 +27,9 @@ sources:
       meta:
         metriql.dimension:
           type: double
-          name: o_orderkey_d
+          name: o_orderkey
         metriql.measure:
-          name: o_orderkey_m
+          name: o_orderkey
           aggregation: sum
           type: double
     - name: O_CUSTKEY
