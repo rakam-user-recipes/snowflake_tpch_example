@@ -8,7 +8,6 @@ sources:
     identifier: ORDERS    
     meta: 
       metriql:  
-        category: Transaction
         mappings: 
           userId: o_custkey
           eventTimestamp: o_orderdate    
