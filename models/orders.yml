@@ -70,7 +70,7 @@ sources:
       meta:
         metriql.dimension:
           type: date
-          timeframes: [week]
+          timeframes: [day, week]
           name: o_orderdate
     - name: O_ORDERPRIORITY
       meta:
