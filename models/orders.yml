@@ -8,7 +8,7 @@ sources:
     identifier: ORDERS    
     meta: 
       metriql:  
-        #category: test
+        #category: test 
         mappings: 
           userId: o_custkey
           eventTimestamp: o_orderdate    
