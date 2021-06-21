@@ -9,7 +9,7 @@ sources:
     meta:  
       metriql:
         measures:
-          total_rows:
+          total_rows: 
             aggregation: count 
           sqlmeasure:
             sql: "{measure.total_rows} * 2"
