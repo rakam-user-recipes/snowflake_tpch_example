@@ -6,7 +6,7 @@ sources:
   tables:    
   - name: orders 
     identifier: ORDERS    
-    meta: 
+    meta:   
       metriql:  
         #category: test 
         mappings: 
@@ -72,7 +72,7 @@ sources:
       meta:
         metriql.dimension:
           type: date
-          timeframes: [day, week]
+          timeframes: [day, week, year]
           name: o_orderdate
     - name: O_ORDERPRIORITY
       meta:
