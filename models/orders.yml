@@ -16,6 +16,10 @@ sources:
           total_orders:
             aggregation: count 
             type: double
+          filtered_measure:
+            aggregation: count
+            filters: 
+              - {dimension: o_orderkey, operator: 'equals', value: 10, valueType: 'double'}
           total_users:
             aggregation: approximate_unique
             dimension: o_custkey
