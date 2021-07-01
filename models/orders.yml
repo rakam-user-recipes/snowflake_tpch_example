@@ -64,7 +64,9 @@ sources:
             datastudio:
               semantic_type: country
             looker:
-              datatype: duration
+              type: duration
+              sql_start: 1
+              sql_end: 2
         metriql.measure:
           aggregation: sum
           type: double
