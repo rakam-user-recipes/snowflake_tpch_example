@@ -33,6 +33,9 @@ sources:
         metriql.dimension:
           type: double
           name: o_orderkey
+          report:
+            datastudio:
+              semantic_type: currency_usd
         metriql.measure:
           name: o_orderkey
           aggregation: sum
