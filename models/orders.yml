@@ -81,7 +81,7 @@ sources:
       meta:
         metriql.dimension:
           type: date
-          timeframes: [day, week, year]
+          timeframes: []
           name: o_orderdate
     - name: O_ORDERPRIORITY
       meta:
