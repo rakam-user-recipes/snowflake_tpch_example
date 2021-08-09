@@ -8,6 +8,10 @@ sources:
     identifier: ORDERS    
     meta:   
       metriql:  
+        relations:
+          test:
+            to: source("tpch", "customer")
+            sql: "{TABLE}.test = {TARGET}.table"
         #category: test 
         mappings: 
           userId: o_custkey
