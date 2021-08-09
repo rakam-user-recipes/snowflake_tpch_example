@@ -13,6 +13,10 @@ sources:
           userId: o_custkey
           eventTimestamp: o_orderdate    
         measures: 
+          magic_1:
+            sql: "1"
+          magic_2:
+            sql: "2"
           total_orders:
             aggregation: count 
             type: double
