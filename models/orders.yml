@@ -9,10 +9,11 @@ sources:
     meta:   
       metriql:  
         relations:
-          test:
-            to: source("tpch", "customer")
-            sql: "{TABLE}.test = {TARGET}.table"
-        #category: test 
+          customer:
+            to: source('tpch', 'customer')
+            relationship: one_to_many 
+            type: left_join
+            sql: "{TABLE}.o_custkey = {TARGET}.c_custkey"
         mappings: 
           userId: o_custkey
           eventTimestamp: o_orderdate    
@@ -55,13 +56,7 @@ sources:
         metriql.measure:
           aggregation: sum
           type: double
-      tests: 
-        - relationships:
-            to: source('tpch', 'customer')
-            field: c_custkey 
-            metriql:
-              relation: one_to_many 
-              join: left_join
+            
 
     - name: O_ORDERSTATUS
       meta:
