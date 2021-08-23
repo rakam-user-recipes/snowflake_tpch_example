@@ -16,7 +16,7 @@ sources:
     columns:
     - name: C_CUSTKEY
       meta:
-        metriql.dimension:
+        metriql.dimension: 
           type: double
           name: c_custkey
     - name: C_NAME
