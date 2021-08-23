@@ -23,7 +23,7 @@ sources:
             type: double
             report:
               datastudio:
-                # semantic_type: percent
+                semantic_type: percent
           filtered_measure:
             aggregation: count
             filters: 
