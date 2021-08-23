@@ -23,7 +23,7 @@ sources:
             type: double
             report:
               datastudio:
-                semantic_type: currency_usd
+                semantic_type: percent
           filtered_measure:
             aggregation: count
             filters: 
@@ -44,20 +44,11 @@ sources:
           report:
             datastudio:
               semantic_type: currency_usd
-        metriql.measure:
-          name: o_orderkey
-          aggregation: sum
-          type: double
     - name: O_CUSTKEY
       meta:
         metriql.dimension:
           type: double
           name: o_custkey
-        metriql.measure:
-          aggregation: sum
-          type: double
-            
-
     - name: O_ORDERSTATUS
       meta:
         metriql.dimension:
@@ -76,14 +67,10 @@ sources:
               type: duration
               sql_start: 1
               sql_end: 2
-        metriql.measure:
-          aggregation: sum
-          type: double
     - name: O_ORDERDATE
       meta:
         metriql.dimension:
           type: date
-          timeframes: null
           name: o_orderdate
     - name: O_ORDERPRIORITY
       meta:
@@ -100,9 +87,6 @@ sources:
         metriql.dimension:
           type: double
           name: o_shippriority
-        metriql.measure:
-          aggregation: sum
-          type: double
     - name: O_COMMENT
       meta:
         rakam.dimension:
