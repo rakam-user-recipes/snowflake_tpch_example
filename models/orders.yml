@@ -11,7 +11,7 @@ sources:
         relations:
           customer:
             to: source('tpch', 'customer')
-            relationship: one_to_many 
+            relationship: one_to_one
             type: left_join
             sql: "{TABLE}.o_custkey = {TARGET}.c_custkey"
         mappings: 
