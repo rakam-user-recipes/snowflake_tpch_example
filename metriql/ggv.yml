@@ -1,0 +1,285 @@
+name: Payment Pages
+filters:
+  date:
+    mapping_dimension: eventTimestamp
+    timeframe: between
+    default: P2W
+    required: true
+reports:
+- name: SA Android Search Upsell
+  x: 0
+  y: 0
+  height: 2
+  width: 3
+  component: r-chart
+  type: funnel
+  options:
+    steps:
+    - dataset: firebase_event_search_upsell_landed
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+      - dimension: country
+        operator: in
+        value:
+        - Saudi Arabia
+    - dataset: firebase_event_search_upsell_initiate_purchase
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+      - dimension: country
+        operator: in
+        value:
+        - Saudi Arabia
+    - dataset: firebase_event_search_upsell_subscribe
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+      - dimension: country
+        operator: in
+        value:
+        - Saudi Arabia
+    dimension:
+      step: 0
+      dimension:
+        name: event_timestamp
+        timeframe: WEEK
+    strictly_ordered: false
+    approximate: false
+- name: USA Android Search Upsell
+  x: 3
+  y: 0
+  height: 2
+  width: 3
+  component: r-chart
+  type: funnel
+  options:
+    steps:
+    - dataset: firebase_event_search_upsell_landed
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+      - dimension: country
+        operator: in
+        value:
+        - United States
+    - dataset: firebase_event_search_upsell_subscribe
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+    dimension:
+      step: 0
+      dimension:
+        name: event_timestamp
+        timeframe: WEEK
+    strictly_ordered: false
+    approximate: false
+- name: USA Android Main Upsell
+  x: 0
+  y: 2
+  height: 2
+  width: 3
+  component: r-chart
+  type: funnel
+  options:
+    steps:
+    - dataset: firebase_event_main_upsell_landed
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+      - dimension: country
+        operator: in
+        value:
+        - United States
+    - dataset: firebase_event_main_upsell_subscribe
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+    dimension:
+      step: 0
+      dimension:
+        name: event_timestamp
+        timeframe: WEEK
+    strictly_ordered: false
+    approximate: false
+- name: SA Android Main Upsell
+  x: 3
+  y: 2
+  height: 2
+  width: 3
+  component: r-chart
+  type: funnel
+  options:
+    steps:
+    - dataset: firebase_event_main_upsell_landed
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+      - dimension: country
+        operator: in
+        value:
+        - Saudi Arabia
+    - dataset: firebase_event_main_upsell_subscribe
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+    dimension:
+      step: 0
+      dimension:
+        name: event_timestamp
+        timeframe: WEEK
+    strictly_ordered: false
+    approximate: false
+- name: SA Android Returning Upsell
+  x: 0
+  y: 4
+  height: 2
+  width: 3
+  component: r-chart
+  type: funnel
+  options:
+    steps:
+    - dataset: firebase_event_returning_upsell_landed
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+      - dimension: country
+        operator: in
+        value:
+        - Saudi Arabia
+    - dataset: firebase_event_returning_upsell_subscribe
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+    dimension:
+      step: 0
+      dimension:
+        name: event_timestamp
+        timeframe: WEEK
+    strictly_ordered: false
+    approximate: false
+- name: US Android Returning Upsell
+  x: 3
+  y: 4
+  height: 2
+  width: 3
+  component: r-chart
+  type: funnel
+  options:
+    steps:
+    - dataset: firebase_event_returning_upsell_landed
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+      - dimension: country
+        operator: in
+        value:
+        - United States
+    - dataset: firebase_event_returning_upsell_subscribe
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+    dimension:
+      step: 0
+      dimension:
+        name: event_timestamp
+        timeframe: WEEK
+    strictly_ordered: false
+    approximate: false
+- name: US Android Welcome Upsell
+  description: The payment screen that opens When the user open the ap first time
+  x: 3
+  y: 6
+  height: 2
+  width: 3
+  component: r-chart
+  type: funnel
+  options:
+    steps:
+    - dataset: firebase_event_welcome_upsell_landed
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+      - dimension: country
+        operator: in
+        value:
+        - United States
+    - dataset: firebase_event_welcome_upsell_initiate_purchase
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+    - dataset: firebase_event_welcome_upsell_subscribe
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+    dimension:
+      step: 0
+      dimension:
+        name: event_timestamp
+        timeframe: WEEK
+    strictly_ordered: false
+    approximate: false
+- name: SA Android Welcome Upsell
+  x: 0
+  y: 6
+  height: 2
+  width: 3
+  component: r-chart
+  type: funnel
+  options:
+    steps:
+    - dataset: firebase_event_welcome_upsell_landed
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+      - dimension: country
+        operator: in
+        value:
+        - Saudi Arabia
+    - dataset: firebase_event_welcome_upsell_subscribe
+      filters:
+      - dimension: operating_system
+        operator: in
+        value:
+        - Android
+    dimension:
+      step: 0
+      dimension:
+        name: event_timestamp
+        timeframe: WEEK
+    strictly_ordered: false
+    approximate: false
