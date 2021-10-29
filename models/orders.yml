@@ -34,7 +34,7 @@ sources:
         aggregates:
           totals_by_date:
             measures: ['total_orders', 'total_users']
-            dimensions: ['o_orderdate', 'o_orderstatus', 'o_orderpriority']
+            dimensions: ['o_orderdate', 'o_orderstatus', 'o_orderpriority', 'customer.c_mktsegment']
     columns:
     - name: O_ORDERKEY
       meta:
